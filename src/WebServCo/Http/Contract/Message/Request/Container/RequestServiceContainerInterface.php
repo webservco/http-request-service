@@ -7,6 +7,7 @@ namespace WebServCo\Http\Contract\Message\Request\Container;
 use WebServCo\Http\Contract\Message\Request\Method\RequestMethodServiceInterface;
 use WebServCo\Http\Contract\Message\Request\RequestBodyServiceInterface;
 use WebServCo\Http\Contract\Message\Request\RequestHeaderServiceInterface;
+use WebServCo\Http\Contract\Message\Request\Server\ServerHeadersAcceptServiceInterface;
 use WebServCo\Http\Contract\Message\Request\Server\ServerRequestAttributeServiceInterface;
 
 /**
@@ -14,6 +15,8 @@ use WebServCo\Http\Contract\Message\Request\Server\ServerRequestAttributeService
  */
 interface RequestServiceContainerInterface
 {
+    public function getServerHeadersAcceptService(): ServerHeadersAcceptServiceInterface;
+
     public function getServerRequestAttributeService(): ServerRequestAttributeServiceInterface;
 
     public function getRequestBodyService(): RequestBodyServiceInterface;

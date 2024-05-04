@@ -8,14 +8,18 @@ use WebServCo\Http\Contract\Message\Request\Container\RequestServiceContainerInt
 use WebServCo\Http\Contract\Message\Request\Method\RequestMethodServiceInterface;
 use WebServCo\Http\Contract\Message\Request\RequestBodyServiceInterface;
 use WebServCo\Http\Contract\Message\Request\RequestHeaderServiceInterface;
+use WebServCo\Http\Contract\Message\Request\Server\ServerHeadersAcceptServiceInterface;
 use WebServCo\Http\Contract\Message\Request\Server\ServerRequestAttributeServiceInterface;
 use WebServCo\Http\Factory\Message\Request\RequestBodyServiceFactory;
 use WebServCo\Http\Factory\Message\Request\RequestHeaderServiceFactory;
 use WebServCo\Http\Service\Message\Request\Method\RequestMethodService;
+use WebServCo\Http\Service\Message\Request\Server\ServerHeadersAcceptService;
 use WebServCo\Http\Service\Message\Request\Server\ServerRequestAttributeService;
 
 final class RequestServiceContainer implements RequestServiceContainerInterface
 {
+    private ?ServerHeadersAcceptServiceInterface $serverHeadersAcceptService = null;
+
     private ?ServerRequestAttributeServiceInterface $serverRequestAttributeService = null;
 
     private ?RequestBodyServiceInterface $requestBodyService = null;
@@ -23,6 +27,15 @@ final class RequestServiceContainer implements RequestServiceContainerInterface
     private ?RequestHeaderServiceInterface $requestHeaderService = null;
 
     private ?RequestMethodServiceInterface $requestMethodService = null;
+
+    public function getServerHeadersAcceptService(): ServerHeadersAcceptServiceInterface
+    {
+        if ($this->serverHeadersAcceptService === null) {
+            $this->serverHeadersAcceptService = new ServerHeadersAcceptService();
+        }
+
+        return $this->serverHeadersAcceptService;
+    }
 
     public function getServerRequestAttributeService(): ServerRequestAttributeServiceInterface
     {
