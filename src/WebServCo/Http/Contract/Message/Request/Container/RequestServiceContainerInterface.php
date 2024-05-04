@@ -9,6 +9,9 @@ use WebServCo\Http\Contract\Message\Request\RequestBodyServiceInterface;
 use WebServCo\Http\Contract\Message\Request\RequestHeaderServiceInterface;
 use WebServCo\Http\Contract\Message\Request\Server\ServerRequestAttributeServiceInterface;
 
+/**
+ * A container for the services available in the project.
+ */
 interface RequestServiceContainerInterface
 {
     public function getServerRequestAttributeService(): ServerRequestAttributeServiceInterface;
