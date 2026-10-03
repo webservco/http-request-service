@@ -8,7 +8,7 @@ use Fig\Http\Message\RequestMethodInterface;
 
 interface RequestMethodServiceInterface extends RequestMethodInterface
 {
-    public const METHODS = [
+    public const array METHODS = [
         self::METHOD_CONNECT,
         self::METHOD_DELETE,
         self::METHOD_GET,

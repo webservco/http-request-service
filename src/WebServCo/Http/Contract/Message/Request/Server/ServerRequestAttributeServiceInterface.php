@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
  */
 interface ServerRequestAttributeServiceInterface
 {
-    public const ROUTE_PART_TEMPLATE = 'routePart.%d';
+    public const string ROUTE_PART_TEMPLATE = 'routePart.%d';
 
     public function getRoutePart(int $index, ServerRequestInterface $request): ?string;
 }
