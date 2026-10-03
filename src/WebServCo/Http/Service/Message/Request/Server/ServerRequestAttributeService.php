@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WebServCo\Http\Service\Message\Request\Server;
 
+use Override;
 use Psr\Http\Message\ServerRequestInterface;
 use UnexpectedValueException;
 use WebServCo\Http\Contract\Message\Request\Server\ServerRequestAttributeServiceInterface;
@@ -13,6 +14,7 @@ use function sprintf;
 
 final class ServerRequestAttributeService implements ServerRequestAttributeServiceInterface
 {
+    #[Override]
     public function getRoutePart(int $index, ServerRequestInterface $request): ?string
     {
         $result = $request->getAttribute(sprintf(self::ROUTE_PART_TEMPLATE, $index), null);

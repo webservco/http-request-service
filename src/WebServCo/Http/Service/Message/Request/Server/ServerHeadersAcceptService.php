@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WebServCo\Http\Service\Message\Request\Server;
 
 use OutOfBoundsException;
+use Override;
 use Psr\Http\Message\ServerRequestInterface;
 use WebServCo\Data\DataTransferObject\KeyValue\StringString;
 use WebServCo\Http\Contract\Message\Request\Server\ServerHeadersAcceptServiceInterface;
@@ -20,6 +21,7 @@ use function strtolower;
 
 final class ServerHeadersAcceptService implements ServerHeadersAcceptServiceInterface
 {
+    #[Override]
     public function getAcceptHeaderValue(ServerRequestInterface $request): string
     {
         $array = $request->getHeader('Accept');
@@ -35,6 +37,7 @@ final class ServerHeadersAcceptService implements ServerHeadersAcceptServiceInte
      *
      * @return array<string,string>
      */
+    #[Override]
     public function parseAcceptList(string $acceptHeaderValue): array
     {
         $result = [];
